@@ -29,7 +29,6 @@ from database.database import *
 
 # File auto-delete time in seconds (Set your desired time in seconds here)
 FILE_AUTO_DELETE = TIME  # Example: 3600 seconds (1 hour)
-TUT_VID = f"{TUT_VID}"
 
 @Bot.on_message(filters.command('start') & filters.private & subscribed1 & subscribed2 & subscribed3 & subscribed4)
 async def start_command(client: Client, message: Message):
@@ -75,8 +74,7 @@ async def start_command(client: Client, message: Message):
                 await update_verify_status(id, verify_token=token, link="")
                 link = await get_shortlink(SHORTLINK_URL, SHORTLINK_API, f'https://telegram.dog/{client.username}?start=verify_{token}')
                 btn = [
-                    [InlineKeyboardButton("• ᴏᴘᴇɴ ʟɪɴᴋ •", url=link)], 
-                    [InlineKeyboardButton('• ᴛᴜᴛᴏʀɪᴀʟ •', url=TUT_VID)]#,
+                    [InlineKeyboardButton("• ᴏᴘᴇɴ ʟɪɴᴋ •", url=link)],
                     #[InlineKeyboardButton('• ʙᴜʏ ᴘʀᴇᴍɪᴜᴍ •', callback_data='premium')]
                 ]
                 return await message.reply(
@@ -187,9 +185,8 @@ async def start_command(client: Client, message: Message):
     ]
             ]
         )
-        await message.reply_photo(
-            photo=START_PIC,
-            caption=START_MSG.format(
+        await message.reply_message(
+            text=START_MSG.format(
                 first=message.from_user.first_name,
                 last=message.from_user.last_name,
                 username=None if not message.from_user.username else '@' + message.from_user.username,
@@ -257,9 +254,8 @@ async def not_joined(client: Client, message: Message):
     except IndexError:
         pass  # Ignore if no second argument is present
 
-    await message.reply_photo(
-        photo=FORCE_PIC,
-        caption=FORCE_MSG.format(
+    await message.reply_message(
+        text=FORCE_MSG.format(
         first=message.from_user.first_name,
         last=message.from_user.last_name,
         username=None if not message.from_user.username else '@' + message.from_user.username,
@@ -273,7 +269,7 @@ async def not_joined(client: Client, message: Message):
 
 #=====================================================================================##
 
-WAIT_MSG = "<b>Working....</b>"
+WAIT_MSG = "<b>Please Wait.... Fetching from Database</b>"
 
 REPLY_ERROR = "<code>Use this command as a reply to any telegram message without any spaces.</code>"
 
@@ -284,7 +280,7 @@ REPLY_ERROR = "<code>Use this command as a reply to any telegram message without
 async def get_users(client: Bot, message: Message):
     msg = await client.send_message(chat_id=message.chat.id, text=WAIT_MSG)
     users = await full_userbase()
-    await msg.edit(f"{len(users)} users are using this bot")
+    await msg.edit(f"{len(users)} users are using this ")
 
 @Bot.on_message(filters.private & filters.command('broadcast') & filters.user(ADMINS))
 async def send_text(client: Bot, message: Message):
