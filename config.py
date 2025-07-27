@@ -5,19 +5,19 @@ from logging.handlers import RotatingFileHandler
 
 
 #Bot token @Botfather
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "8031779616:AAGq-h-uaN4j_UcfmkAeKPluXmFhNWBOlHM")
+TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "7721902522:AAEY8gglDXV6goNlubNjEKTqLOzdV2DMaHo")
 #Your API ID from my.telegram.org
 APP_ID = int(os.environ.get("APP_ID", "27394279"))
 #Your API Hash from my.telegram.org
 API_HASH = os.environ.get("API_HASH", "90a9aa4c31afa3750da5fd686c410851")
 #Your db channel Id
-CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002596071687"))
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002288135729"))
 # NAMA OWNER
-OWNER = os.environ.get("OWNER", "Itsme123i")
+OWNER = os.environ.get("OWNER", "Itsme123c")
 #OWNER ID
-OWNER_ID = int(os.environ.get("OWNER_ID", "1705634892"))
+OWNER_ID = int(os.environ.get("OWNER_ID", "7465574522"))
 #Port
-PORT = os.environ.get("PORT", "8030")
+PORT = os.environ.get("PORT", "8000")
 #Database
 DB_URI = os.environ.get("DATABASE_URL", "mongodb+srv://python21java:8ZFGYMKJCqAPwsiO@filestore.f876hjv.mongodb.net/?retryWrites=true&w=majority&appName=Filestore")
 DB_NAME = os.environ.get("DATABASE_NAME", "Drama-Guy")
